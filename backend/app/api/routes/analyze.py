@@ -177,17 +177,22 @@ async def analyze_resume(
         final_text = raw_resume_text.strip()
 
     # Validate that we have both inputs
+    print(f"DEBUG: POST /api/analyze called. target_role='{final_role}', file='{resume_file.filename if resume_file else None}', raw_text_len={len(raw_resume_text or '')}")
+
     if not final_role.strip():
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="target_role is required. Please specify the job role you want to analyze against."
         )
 
-    if not final_text or len(final_text.strip()) < 30:
+    if not final_text or len(final_text.strip()) < 50:
+        print(f"DEBUG: ERROR: Resume text insufficient ({len(final_text.strip()) if final_text else 0} chars < 50).")
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Resume content is required. Please provide a PDF file or at least 30 characters of resume text."
+            detail="Resume content is required. Please provide a PDF file or at least 50 characters of resume text."
         )
+
+    print(f"DEBUG: Processing analysis with {len(final_text)} characters of resume text for role '{final_role.strip()}'.")
 
     # Invoke Gemini analysis engine
     analysis = analyze_resume_with_gemini(

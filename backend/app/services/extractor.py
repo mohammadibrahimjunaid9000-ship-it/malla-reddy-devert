@@ -48,15 +48,17 @@ def extract_text_from_pdf(file_bytes: bytes) -> str:
         # Normalize excessive newlines
         cleaned_text = re.sub(r"\n{3,}", "\n\n", cleaned_text).strip()
 
-        if len(cleaned_text) < 30:
+        if len(cleaned_text) < 50:
+            print(f"DEBUG: ERROR: Extracted only {len(cleaned_text)} characters (< 50) from PDF.")
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail=(
-                    "Unable to extract sufficient legible text from the PDF (less than 30 characters). "
+                    f"Unable to extract sufficient legible text from the PDF (only {len(cleaned_text)} characters extracted, minimum 50 required). "
                     "Please ensure the document contains selectable text and is not an image-only scan."
                 )
             )
 
+        print(f"DEBUG: Extracted {len(cleaned_text)} characters from uploaded resume.")
         return cleaned_text
 
     except (PdfReadError, PdfStreamError, ValueError) as parse_err:

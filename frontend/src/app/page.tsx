@@ -112,6 +112,10 @@ export default function Home() {
     setAppState("analyzing");
 
     try {
+      console.log(
+        `DEBUG: Submitting resume analysis to ${API_URL}/api/analyze. Target Role: "${finalRole}", File: "${selectedFile?.name || 'none'}", Raw Text Length: ${rawText?.length || 0}`
+      );
+
       const formData = new FormData();
       formData.append("target_role", finalRole);
 
