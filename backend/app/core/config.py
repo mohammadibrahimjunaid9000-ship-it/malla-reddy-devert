@@ -87,6 +87,12 @@ class Settings(BaseSettings):
         or raw_env.get("jooble_api_key")
         or ""
     )
+    YOUTUBE_API_KEY: str = (
+        raw_env.get("YOUTUBE_API_KEY")
+        or raw_env.get("youtube_api")
+        or raw_env.get("youtube_api_key")
+        or ""
+    )
     PORT: int = int(raw_env.get("PORT", 8000))
 
     # Compatibility aliases
