@@ -12,6 +12,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { DSAQuestion } from "@/lib/types";
+import { getDSAQuestions } from "@/lib/api";
 
 const COMPANIES = ["All", "Google", "Amazon", "Microsoft", "Meta", "Uber", "Netflix"];
 const DIFFICULTIES = ["All", "Easy", "Medium", "Hard"];
@@ -78,13 +79,7 @@ export const CompanyDSATab: React.FC = () => {
   const fetchQuestions = async (company: string, diff: string) => {
     setLoading(true);
     try {
-      const params = new URLSearchParams();
-      if (company !== "All") params.append("company", company);
-      if (diff !== "All") params.append("difficulty", diff);
-
-      const res = await fetch(`${API_URL}/api/dsa?${params.toString()}`);
-      if (!res.ok) throw new Error("API failed");
-      const data = await res.json();
+      const data = await getDSAQuestions(company, diff);
       if (Array.isArray(data) && data.length > 0) {
         setQuestions(data);
       } else {

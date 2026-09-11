@@ -4,12 +4,21 @@ export interface MissingSkillDetail {
   reason: string;
 }
 
+export interface YouTubeVideoItem {
+  videoId: string;
+  title: string;
+  channelTitle: string;
+  thumbnailUrl: string;
+  embedUrl: string;
+}
+
 export interface RoadmapItemDetail {
   week: number;
   theme: string;
   task: string;
   youtube_search_query: string;
   coursera_search_query: string;
+  videos?: YouTubeVideoItem[];
 }
 
 export interface FullAnalysisResponse {

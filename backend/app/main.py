@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes.analyze import router as analyze_router
 from app.api.routes.jobs import router as jobs_router
 from app.api.routes.dsa import router as dsa_router
+from app.api.routes.youtube import router as youtube_router
 from app.core.supabase import supabase
 
 app = FastAPI(
@@ -31,6 +32,7 @@ app.add_middleware(
 app.include_router(analyze_router, prefix="/api")
 app.include_router(jobs_router, prefix="/api")
 app.include_router(dsa_router, prefix="/api")
+app.include_router(youtube_router, prefix="/api")
 
 @app.get("/health", tags=["Health"])
 def health_check():

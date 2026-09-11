@@ -12,6 +12,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { FullAnalysisResponse } from "@/lib/types";
+import { getDemoAnalysis } from "@/lib/api";
 import { Navbar } from "@/components/Navbar";
 import { UploadSection } from "@/components/UploadSection";
 import { AnalysisHeader } from "@/components/AnalysisHeader";
@@ -50,10 +51,7 @@ export default function Home() {
     setAppState("analyzing");
 
     try {
-      const res = await fetch(`${API_URL}/api/demo-analysis`);
-      if (!res.ok) throw new Error("Demo endpoint returned HTTP " + res.status);
-      const data: FullAnalysisResponse = await res.json();
-      
+      const data = await getDemoAnalysis();
       // Smooth animated delay for realistic AI feel
       setTimeout(() => {
         setAnalysis(data);

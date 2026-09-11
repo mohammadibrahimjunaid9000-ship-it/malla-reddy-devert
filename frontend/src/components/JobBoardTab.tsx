@@ -12,6 +12,7 @@ import {
   Filter,
 } from "lucide-react";
 import { JobPosting } from "@/lib/types";
+import { getJobs } from "@/lib/api";
 
 interface JobBoardTabProps {
   initialKeyword: string;
@@ -76,16 +77,7 @@ export const JobBoardTab: React.FC<JobBoardTabProps> = ({ initialKeyword }) => {
   const fetchJobs = async (kw: string, loc: string) => {
     setLoading(true);
     try {
-      const params = new URLSearchParams();
-      if (kw.trim()) {
-        params.append("keywords", kw.trim());
-        params.append("keyword", kw.trim());
-      }
-      if (loc.trim()) params.append("location", loc.trim());
-
-      const res = await fetch(`${API_URL}/api/jobs?${params.toString()}`);
-      if (!res.ok) throw new Error("API failed");
-      const data = await res.json();
+      const data = await getJobs(kw, loc);
       if (Array.isArray(data) && data.length > 0) {
         setJobs(data);
       } else {
