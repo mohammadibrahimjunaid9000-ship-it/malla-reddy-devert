@@ -140,7 +140,11 @@ export const RoadmapTab: React.FC<RoadmapTabProps> = ({ roadmap, targetRole }) =
         <div>
           <h3 className="text-xl font-bold text-white flex items-center gap-2">
             <BookOpen className="h-5 w-5 text-indigo-400" />
-            <span>4-Week Career Pathway & Interactive Masterclasses</span>
+            <span>
+              {roadmap.length > 0
+                ? `${roadmap.length}-Week Career Pathway & Interactive Masterclasses`
+                : "Career Pathway & Interactive Masterclasses"}
+            </span>
           </h3>
           <p className="text-xs text-slate-400 mt-1">
             Tailored engineering curriculum for{" "}

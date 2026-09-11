@@ -160,7 +160,11 @@ export default function SharedRoadmapPage() {
                 }`}
               >
                 <Sparkles className="h-4 w-4 text-purple-400" />
-                <span>4-Week Pathway & Videos</span>
+                <span>
+                  {analysis
+                    ? `${(analysis.learning_roadmap || analysis.roadmap)?.length || 4}-Week Pathway & Videos`
+                    : "Learning Pathway & Videos"}
+                </span>
               </button>
 
               <button

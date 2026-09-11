@@ -34,6 +34,7 @@ export interface FullAnalysisResponse {
   matched_skills: string[];
   missing_skills: MissingSkillDetail[];
   learning_roadmap: RoadmapItemDetail[];
+  roadmap?: RoadmapItemDetail[];
   job_search_keyword: string;
   resume_bullet_fixes: string[];
   persisted?: boolean;

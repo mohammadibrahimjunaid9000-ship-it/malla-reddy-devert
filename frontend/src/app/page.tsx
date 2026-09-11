@@ -209,7 +209,7 @@ export default function Home() {
               </h1>
 
               <p className="text-sm sm:text-base text-slate-400 max-w-xl">
-                Upload your resume, pinpoint missing competencies, track an AI-synthesized 4-week learning roadmap, and solve company-specific algorithm problems.
+                Upload your resume, pinpoint missing competencies, track an AI-synthesized personalized learning roadmap, and solve company-specific algorithm problems.
               </p>
             </div>
 
@@ -266,7 +266,11 @@ export default function Home() {
                   }`}
                 >
                   <BookOpen className="h-3.5 w-3.5" />
-                  <span>4-Week Roadmap</span>
+                  <span>
+                    {analysis
+                      ? `${(analysis.learning_roadmap || analysis.roadmap)?.length || 4}-Week Roadmap`
+                      : "Learning Roadmap"}
+                  </span>
                 </button>
 
                 <button
