@@ -53,12 +53,14 @@ export interface JobPosting {
 }
 
 export interface DSAQuestion {
-  id: string;
-  company: string;
+  id: string | number;
+  company?: string;
   title: string;
   difficulty: "Easy" | "Medium" | "Hard" | string;
-  pattern: string;
+  pattern?: string;
+  topic?: string;
   leetcode_url: string;
+  companies?: string[];
 }
 
 export interface InterviewQuestion {

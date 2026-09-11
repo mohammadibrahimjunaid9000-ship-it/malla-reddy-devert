@@ -66,15 +66,34 @@ export async function getJobs(
 }
 
 /**
- * Retrieve curated company DSA coding problems with optional filtering.
+ * Retrieve all unique companies available in the DSA question dataset.
+ */
+export async function getDSACompanies(): Promise<string[]> {
+  const res = await fetch(`${API_BASE}/api/dsa/companies`);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch companies (${res.status})`);
+  }
+  return res.json();
+}
+
+/**
+ * Retrieve curated company DSA coding problems with optional filtering & search.
  */
 export async function getDSAQuestions(
   company?: string,
-  difficulty?: string
+  difficulty?: string,
+  topic?: string,
+  search?: string,
+  page: number = 1,
+  limit: number = 50
 ): Promise<DSAQuestion[]> {
   const params = new URLSearchParams();
   if (company && company !== "All") params.append("company", company);
   if (difficulty && difficulty !== "All") params.append("difficulty", difficulty);
+  if (topic && topic !== "All") params.append("topic", topic);
+  if (search && search.trim()) params.append("search", search.trim());
+  if (page) params.append("page", page.toString());
+  if (limit) params.append("limit", limit.toString());
 
   const res = await fetch(`${API_BASE}/api/dsa?${params.toString()}`);
   if (!res.ok) {
