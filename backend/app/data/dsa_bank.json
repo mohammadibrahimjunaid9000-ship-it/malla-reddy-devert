@@ -1,0 +1,236 @@
+[
+  {
+    "id": "goog-1",
+    "company": "Google",
+    "title": "LRU Cache",
+    "difficulty": "Medium",
+    "pattern": "Hash Table & Doubly Linked List",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/lru-cache/"
+  },
+  {
+    "id": "goog-2",
+    "company": "Google",
+    "title": "Merge k Sorted Lists",
+    "difficulty": "Hard",
+    "pattern": "Min-Heap & Priority Queue",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/merge-k-sorted-lists/"
+  },
+  {
+    "id": "goog-3",
+    "company": "Google",
+    "title": "Median of Two Sorted Arrays",
+    "difficulty": "Hard",
+    "pattern": "Binary Search & Divide and Conquer",
+    "frequency": "High",
+    "leetcode_url": "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+  },
+  {
+    "id": "goog-4",
+    "company": "Google",
+    "title": "Word Ladder II",
+    "difficulty": "Hard",
+    "pattern": "BFS & Backtracking",
+    "frequency": "High",
+    "leetcode_url": "https://leetcode.com/problems/word-ladder-ii/"
+  },
+  {
+    "id": "goog-5",
+    "company": "Google",
+    "title": "Fruit Into Baskets",
+    "difficulty": "Medium",
+    "pattern": "Sliding Window",
+    "frequency": "High",
+    "leetcode_url": "https://leetcode.com/problems/fruit-into-baskets/"
+  },
+  {
+    "id": "amzn-1",
+    "company": "Amazon",
+    "title": "Course Schedule II",
+    "difficulty": "Medium",
+    "pattern": "Topological Sort & Graph BFS",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/course-schedule-ii/"
+  },
+  {
+    "id": "amzn-2",
+    "company": "Amazon",
+    "title": "Word Break",
+    "difficulty": "Medium",
+    "pattern": "1D Dynamic Programming & Trie",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/word-break/"
+  },
+  {
+    "id": "amzn-3",
+    "company": "Amazon",
+    "title": "Reorganize String",
+    "difficulty": "Medium",
+    "pattern": "Greedy & Max-Heap",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/reorganize-string/"
+  },
+  {
+    "id": "amzn-4",
+    "company": "Amazon",
+    "title": "Critical Connections in a Network",
+    "difficulty": "Hard",
+    "pattern": "Tarjan's Bridge Algorithm / DFS",
+    "frequency": "High",
+    "leetcode_url": "https://leetcode.com/problems/critical-connections-in-a-network/"
+  },
+  {
+    "id": "amzn-5",
+    "company": "Amazon",
+    "title": "Number of Islands",
+    "difficulty": "Medium",
+    "pattern": "Matrix DFS / BFS Flood Fill",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/number-of-islands/"
+  },
+  {
+    "id": "msft-1",
+    "company": "Microsoft",
+    "title": "Design Search Autocomplete System",
+    "difficulty": "Hard",
+    "pattern": "Trie & Priority Queue",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/design-search-autocomplete-system/"
+  },
+  {
+    "id": "msft-2",
+    "company": "Microsoft",
+    "title": "Serialize and Deserialize Binary Tree",
+    "difficulty": "Hard",
+    "pattern": "Tree Traversal & Level Order BFS",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+  },
+  {
+    "id": "msft-3",
+    "company": "Microsoft",
+    "title": "Sign of the Product of an Array",
+    "difficulty": "Easy",
+    "pattern": "Math & Array Simulation",
+    "frequency": "High",
+    "leetcode_url": "https://leetcode.com/problems/sign-of-the-product-of-an-array/"
+  },
+  {
+    "id": "msft-4",
+    "company": "Microsoft",
+    "title": "Spiral Matrix",
+    "difficulty": "Medium",
+    "pattern": "2D Matrix Boundary Traversal",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/spiral-matrix/"
+  },
+  {
+    "id": "meta-1",
+    "company": "Meta",
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "difficulty": "Medium",
+    "pattern": "Tree DFS & Divide and Conquer",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+  },
+  {
+    "id": "meta-2",
+    "company": "Meta",
+    "title": "Valid Palindrome II",
+    "difficulty": "Easy",
+    "pattern": "Two Pointers",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/valid-palindrome-ii/"
+  },
+  {
+    "id": "meta-3",
+    "company": "Meta",
+    "title": "Subarray Sum Equals K",
+    "difficulty": "Medium",
+    "pattern": "Prefix Sum & Hash Map",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/subarray-sum-equals-k/"
+  },
+  {
+    "id": "meta-4",
+    "company": "Meta",
+    "title": "Continuous Subarray Sum",
+    "difficulty": "Medium",
+    "pattern": "Prefix Sum & Modulo Math",
+    "frequency": "High",
+    "leetcode_url": "https://leetcode.com/problems/continuous-subarray-sum/"
+  },
+  {
+    "id": "uber-1",
+    "company": "Uber",
+    "title": "Bus Routes",
+    "difficulty": "Hard",
+    "pattern": "Breadth-First Search & Graph Modeling",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/bus-routes/"
+  },
+  {
+    "id": "uber-2",
+    "company": "Uber",
+    "title": "Meeting Rooms II",
+    "difficulty": "Medium",
+    "pattern": "Intervals & Min-Heap / Two Pointers",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/meeting-rooms-ii/"
+  },
+  {
+    "id": "uber-3",
+    "company": "Uber",
+    "title": "Trapping Rain Water",
+    "difficulty": "Hard",
+    "pattern": "Monotonic Stack / Two Pointers",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/trapping-rain-water/"
+  },
+  {
+    "id": "uber-4",
+    "company": "Uber",
+    "title": "Design Hit Counter",
+    "difficulty": "Medium",
+    "pattern": "Queue & Circular Buffer",
+    "frequency": "High",
+    "leetcode_url": "https://leetcode.com/problems/design-hit-counter/"
+  },
+  {
+    "id": "nflx-1",
+    "company": "Netflix",
+    "title": "LFU Cache",
+    "difficulty": "Hard",
+    "pattern": "Double Hash Map & Doubly Linked List",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/lfu-cache/"
+  },
+  {
+    "id": "nflx-2",
+    "company": "Netflix",
+    "title": "Find Median from Data Stream",
+    "difficulty": "Hard",
+    "pattern": "Two Heaps (Max-Heap & Min-Heap)",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/find-median-from-data-stream/"
+  },
+  {
+    "id": "nflx-3",
+    "company": "Netflix",
+    "title": "Sliding Window Maximum",
+    "difficulty": "Hard",
+    "pattern": "Monotonic Deque",
+    "frequency": "Very High",
+    "leetcode_url": "https://leetcode.com/problems/sliding-window-maximum/"
+  },
+  {
+    "id": "nflx-4",
+    "company": "Netflix",
+    "title": "Capacity To Ship Packages Within D Days",
+    "difficulty": "Medium",
+    "pattern": "Binary Search on Answer Space",
+    "frequency": "High",
+    "leetcode_url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+  }
+]
