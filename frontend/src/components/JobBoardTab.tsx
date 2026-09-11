@@ -19,40 +19,49 @@ interface JobBoardTabProps {
 
 const FALLBACK_JOBS: JobPosting[] = [
   {
-    id: "fb-1",
-    title: "Senior Backend Engineer (Distributed Systems)",
-    company: "Stripe",
-    location: "Remote / San Francisco, CA",
-    salary: "$165,000 - $210,000",
-    snippet: "Scale core payment transaction processing pipelines handling billions in volume. Lead architectural evolutions in Python/Go microservices and PostgreSQL.",
-    url: "https://stripe.com/jobs",
+    id: "ind-1",
+    title: "SDE-2 (Backend - Python/Go)",
+    company: "Razorpay",
+    location: "Bengaluru, Karnataka",
+    salary: "₹18L - ₹28L PA",
+    snippet: "Scale fintech payment processing handling billions of rupees daily. Core microservices require high concurrency, low latency, and deep backend mastery.",
+    url: "https://razorpay.com/jobs/",
   },
   {
-    id: "fb-2",
-    title: "AI Application Systems Engineer",
-    company: "Scale AI",
-    location: "San Francisco, CA (Hybrid)",
-    salary: "$180,000 - $240,000",
-    snippet: "Build production RAG pipelines, fine-tune models, and architect high-throughput inference infrastructure using vLLM, Ray, and vector databases.",
-    url: "https://scale.com/careers",
+    id: "ind-2",
+    title: "Full Stack Engineer (React & Node)",
+    company: "Swiggy",
+    location: "Bengaluru, Karnataka",
+    salary: "₹15L - ₹24L PA",
+    snippet: "Architect real-time order matching and consumer application workflows handling peak dinner traffic. Hands-on experience in modern web stacks.",
+    url: "https://careers.swiggy.com/",
   },
   {
-    id: "fb-3",
-    title: "Full Stack Engineer (AI & Workflows)",
-    company: "Vercel",
-    location: "Remote (Global)",
-    salary: "$155,000 - $195,000",
-    snippet: "Create frictionless developer experiences around Next.js App Router, AI SDK, and edge serverless runtimes. High ownership and impact.",
-    url: "https://vercel.com/careers",
+    id: "ind-3",
+    title: "Software Engineer - Core Platform",
+    company: "PhonePe",
+    location: "Bengaluru, Karnataka",
+    salary: "₹16L - ₹26L PA",
+    snippet: "Build resilient distributed transaction ledgers and payment infrastructure. Own mission-critical microservices with focus on reliability.",
+    url: "https://www.phonepe.com/careers/",
   },
   {
-    id: "fb-4",
-    title: "Cloud Infrastructure & DevOps Engineer",
-    company: "Datadog",
-    location: "New York, NY / Remote",
-    salary: "$160,000 - $205,000",
-    snippet: "Drive reliability and observability across multi-region Kubernetes clusters. Automate Terraform deployment pipelines and incident remediation.",
-    url: "https://www.datadoghq.com/careers/",
+    id: "ind-4",
+    title: "Frontend Engineer (Next.js / TypeScript)",
+    company: "Freshworks",
+    location: "Hyderabad, Telangana (Hybrid)",
+    salary: "₹12L - ₹20L PA",
+    snippet: "Craft delightful SaaS user interfaces with exceptional responsiveness and accessible design systems. Deep knowledge of modern frontend architecture.",
+    url: "https://www.freshworks.com/company/careers/",
+  },
+  {
+    id: "ind-5",
+    title: "Backend Engineer - Microservices",
+    company: "Zomato",
+    location: "Gurugram, Haryana",
+    salary: "₹14L - ₹22L PA",
+    snippet: "Design highly scalable microservices powering live logistics, restaurant discovery, and partner portals across India. Experience with caching.",
+    url: "https://www.zomato.com/careers",
   },
 ];
 
@@ -140,7 +149,7 @@ export const JobBoardTab: React.FC<JobBoardTabProps> = ({ initialKeyword }) => {
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            placeholder="Location or 'Remote'..."
+            placeholder="Bengaluru, Hyderabad, or 'Remote'..."
             className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-slate-200 text-xs sm:text-sm outline-none transition-all"
           />
         </div>
