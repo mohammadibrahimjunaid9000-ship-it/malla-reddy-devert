@@ -56,6 +56,18 @@ def get_demo_analysis() -> GapAnalysisResponse:
                 week=1,
                 theme="High-Throughput LLM Serving Engines",
                 task="Deploy an open-source model using vLLM with PagedAttention and benchmark requests/sec.",
+                tasks=[
+                    "Install and configure vLLM with optimized GPU memory utilization and KV cache paging.",
+                    "Deploy Llama 3 or Mistral 7B locally and compare inference latency vs HuggingFace pipeline.",
+                    "Author asynchronous batching client using Python asyncio and httpx.",
+                    "Benchmark throughput with continuous streaming and quantify tokens/sec."
+                ],
+                focus_skills=["vLLM", "PagedAttention", "KV Caching"],
+                search_queries=[
+                    "vLLM production deployment paged attention tutorial",
+                    "High throughput LLM serving with vLLM and Docker",
+                    "TensorRT LLM vs vLLM benchmark"
+                ],
                 youtube_search_query="vLLM production deployment paged attention tutorial",
                 coursera_search_query="Generative AI with Large Language Models"
             ),
@@ -63,6 +75,18 @@ def get_demo_analysis() -> GapAnalysisResponse:
                 week=2,
                 theme="Distributed AI Inference & Ray Clusters",
                 task="Set up a local Ray cluster to orchestrate parallel model batch evaluations.",
+                tasks=[
+                    "Initialize a local Ray head node with multi-worker CPU/GPU resource allocations.",
+                    "Implement Ray Serve deployment with autoscaling replicas and dynamic batching.",
+                    "Construct distributed model evaluation pipeline across 1,000 synthetic test prompts.",
+                    "Profile GPU memory allocation and implement worker fault-recovery handlers."
+                ],
+                focus_skills=["Ray Serve", "Distributed Computing", "Autoscaling"],
+                search_queries=[
+                    "Ray core and Ray serve distributed python tutorial",
+                    "Distributed AI computing with Ray framework",
+                    "Ray Serve production architecture"
+                ],
                 youtube_search_query="Ray core and Ray serve distributed python tutorial",
                 coursera_search_query="Distributed Computing with Ray"
             ),
@@ -70,6 +94,18 @@ def get_demo_analysis() -> GapAnalysisResponse:
                 week=3,
                 theme="Production RAG Guardrails & Evaluation",
                 task="Implement automated RAG evaluation using Ragas framework to grade context relevancy.",
+                tasks=[
+                    "Build hybrid retrieval pipeline combining BM25 keyword search with dense vector embeddings.",
+                    "Integrate Ragas evaluation metrics (faithfulness, answer relevancy, context recall).",
+                    "Implement NeMo Guardrails or Llama Guard for input sanitization and hallucination prevention.",
+                    "Automate weekly RAG quality regression testing within CI/CD pipeline."
+                ],
+                focus_skills=["Ragas", "Hybrid Search", "AI Guardrails"],
+                search_queries=[
+                    "RAG evaluation with Ragas and Langfuse",
+                    "Advanced RAG hybrid search with reranking",
+                    "Building production RAG guardrails"
+                ],
                 youtube_search_query="RAG evaluation with Ragas and Langfuse",
                 coursera_search_query="Building LLM Applications with LangChain"
             ),
@@ -77,6 +113,18 @@ def get_demo_analysis() -> GapAnalysisResponse:
                 week=4,
                 theme="End-to-End Autonomous Agent Capstone",
                 task="Construct a full agentic pipeline with automated fallback routing and OpenTelemetry tracing.",
+                tasks=[
+                    "Author multi-turn agent with tool calling, schema validation, and structured outputs.",
+                    "Implement OpenTelemetry tracing with LangSmith/Phoenix for end-to-end token cost observability.",
+                    "Containerize the complete AI agent system using Docker multi-stage builds.",
+                    "Deploy to cloud staging environment and perform live automated smoke tests."
+                ],
+                focus_skills=["Agentic Workflows", "OpenTelemetry", "Docker"],
+                search_queries=[
+                    "Building autonomous AI agents production patterns",
+                    "LangSmith OpenTelemetry tracing tutorial",
+                    "Dockerizing AI applications for production"
+                ],
                 youtube_search_query="Building autonomous AI agents production patterns",
                 coursera_search_query="Machine Learning Specialization DeepLearning.AI"
             )

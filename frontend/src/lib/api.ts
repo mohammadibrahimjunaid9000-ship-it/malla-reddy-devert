@@ -88,7 +88,7 @@ export async function getDSAQuestions(
  */
 export async function searchYouTube(
   query: string,
-  maxResults: number = 2
+  maxResults: number = 3
 ): Promise<YouTubeVideoItem[]> {
   const params = new URLSearchParams({
     q: query.trim(),

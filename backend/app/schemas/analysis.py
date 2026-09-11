@@ -11,9 +11,23 @@ class MissingSkill(BaseModel):
 class RoadmapItem(BaseModel):
     week: int = Field(..., description="Sequential week number in the learning pathway")
     theme: str = Field(..., description="Core module or subject theme")
-    task: str = Field(..., description="Actionable learning task or hands-on mini-project")
-    youtube_search_query: str = Field(..., description="Pre-composed search query for YouTube tutorials")
-    coursera_search_query: str = Field(..., description="Pre-composed search query for Coursera courses")
+    title: Optional[str] = Field(default=None, description="Optional title alias for theme")
+    task: str = Field(default="", description="Actionable learning task or hands-on mini-project summary")
+    tasks: List[str] = Field(
+        default_factory=list,
+        description="3-4 granular, practical action items and sub-tasks for this milestone"
+    )
+    focus_skills: List[str] = Field(
+        default_factory=list,
+        description="Core technical competencies trained in this week"
+    )
+    search_queries: List[str] = Field(
+        default_factory=list,
+        description="2-3 targeted YouTube search queries (conceptual deep dive + hands-on build)"
+    )
+    youtube_search_query: str = Field(default="", description="Pre-composed search query for YouTube tutorials")
+    coursera_search_query: str = Field(default="", description="Pre-composed search query for Coursera courses")
+    videos: List[dict] = Field(default_factory=list, description="Hydrated educational video items")
 
 
 class GapAnalysisResponse(BaseModel):

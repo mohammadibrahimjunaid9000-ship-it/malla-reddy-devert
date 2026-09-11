@@ -27,6 +27,13 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="freeCodeCamp.org",
             thumbnailUrl="https://i.ytimg.com/vi/rfscVS0vtbw/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/rfscVS0vtbw"
+        ),
+        YouTubeVideoItem(
+            videoId="_uQrJ0TkZlc",
+            title="Python OOP Tutorials - Working with Classes and Objects",
+            channelTitle="Corey Schafer",
+            thumbnailUrl="https://i.ytimg.com/vi/_uQrJ0TkZlc/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/_uQrJ0TkZlc"
         )
     ],
     "fastapi": [
@@ -43,6 +50,13 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="Fireship",
             thumbnailUrl="https://i.ytimg.com/vi/SORiTsvnU28/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/SORiTsvnU28"
+        ),
+        YouTubeVideoItem(
+            videoId="tLKKmouUAMS",
+            title="FastAPI Crash Course - Modern Async APIs in Python",
+            channelTitle="Amigoscode",
+            thumbnailUrl="https://i.ytimg.com/vi/tLKKmouUAMS/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/tLKKmouUAMS"
         )
     ],
     "react": [
@@ -59,6 +73,13 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="Fireship",
             thumbnailUrl="https://i.ytimg.com/vi/Tn6-PIqc4UM/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/Tn6-PIqc4UM"
+        ),
+        YouTubeVideoItem(
+            videoId="SqcY0GlETPk",
+            title="React Hooks Masterclass - State, Effects, and Custom Hooks",
+            channelTitle="Codevolution",
+            thumbnailUrl="https://i.ytimg.com/vi/SqcY0GlETPk/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/SqcY0GlETPk"
         )
     ],
     "next": [
@@ -75,6 +96,13 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="Fireship",
             thumbnailUrl="https://i.ytimg.com/vi/Sklc_fQBmcs/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/Sklc_fQBmcs"
+        ),
+        YouTubeVideoItem(
+            videoId="843nec-IvW0",
+            title="Next.js Full Stack Architecture & Server Actions Deep Dive",
+            channelTitle="freeCodeCamp.org",
+            thumbnailUrl="https://i.ytimg.com/vi/843nec-IvW0/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/843nec-IvW0"
         )
     ],
     "docker": [
@@ -91,6 +119,13 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="Fireship",
             thumbnailUrl="https://i.ytimg.com/vi/Gjnup-PuquQ/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/Gjnup-PuquQ"
+        ),
+        YouTubeVideoItem(
+            videoId="pTFZFxd4hOI",
+            title="Docker & Multi-Stage Production Builds Walkthrough",
+            channelTitle="freeCodeCamp.org",
+            thumbnailUrl="https://i.ytimg.com/vi/pTFZFxd4hOI/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/pTFZFxd4hOI"
         )
     ],
     "kubernetes": [
@@ -107,6 +142,13 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="Fireship",
             thumbnailUrl="https://i.ytimg.com/vi/PivpCKEiQOQ/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/PivpCKEiQOQ"
+        ),
+        YouTubeVideoItem(
+            videoId="d6WC5n9G_vM",
+            title="Kubernetes Tutorial for Beginners [Full Course 4 Hours]",
+            channelTitle="TechWorld with Nana",
+            thumbnailUrl="https://i.ytimg.com/vi/d6WC5n9G_vM/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/d6WC5n9G_vM"
         )
     ],
     "system design": [
@@ -123,6 +165,13 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="NeetCode",
             thumbnailUrl="https://i.ytimg.com/vi/i53Gi_K3o7I/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/i53Gi_K3o7I"
+        ),
+        YouTubeVideoItem(
+            videoId="bUHFg8CZFCA",
+            title="System Design Distributed Systems Fundamentals",
+            channelTitle="Gaurav Sen",
+            thumbnailUrl="https://i.ytimg.com/vi/bUHFg8CZFCA/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/bUHFg8CZFCA"
         )
     ],
     "dsa": [
@@ -139,6 +188,13 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="NeetCode",
             thumbnailUrl="https://i.ytimg.com/vi/KLlXCFG5TnA/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/KLlXCFG5TnA"
+        ),
+        YouTubeVideoItem(
+            videoId="zg9ih6SVACc",
+            title="Dynamic Programming Tutorial - Solve Any Hard Problem",
+            channelTitle="freeCodeCamp.org",
+            thumbnailUrl="https://i.ytimg.com/vi/zg9ih6SVACc/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/zg9ih6SVACc"
         )
     ],
     "sql": [
@@ -155,12 +211,19 @@ CURATED_FALLBACK_LIBRARY = {
             channelTitle="Fireship",
             thumbnailUrl="https://i.ytimg.com/vi/ztHopE5Wnpc/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/ztHopE5Wnpc"
+        ),
+        YouTubeVideoItem(
+            videoId="7S_tz1z_5bA",
+            title="MySQL Database Design & Indexing Optimization Tutorial",
+            channelTitle="freeCodeCamp.org",
+            thumbnailUrl="https://i.ytimg.com/vi/7S_tz1z_5bA/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/7S_tz1z_5bA"
         )
     ]
 }
 
 
-def get_curated_fallback(query: str, max_results: int = 2) -> List[YouTubeVideoItem]:
+def get_curated_fallback(query: str, max_results: int = 3) -> List[YouTubeVideoItem]:
     """Return top educational videos matching query keywords from trusted educators."""
     clean = query.lower().strip()
     for key, items in CURATED_FALLBACK_LIBRARY.items():
@@ -182,11 +245,18 @@ def get_curated_fallback(query: str, max_results: int = 2) -> List[YouTubeVideoI
             channelTitle="NeetCode",
             thumbnailUrl="https://i.ytimg.com/vi/m8Icp_Cid5o/hqdefault.jpg",
             embedUrl="https://www.youtube.com/embed/m8Icp_Cid5o"
+        ),
+        YouTubeVideoItem(
+            videoId="i53Gi_K3o7I",
+            title=f"Hands-On {query.title()} Engineering Deep Dive",
+            channelTitle="TechWorld with Nana",
+            thumbnailUrl="https://i.ytimg.com/vi/i53Gi_K3o7I/hqdefault.jpg",
+            embedUrl="https://www.youtube.com/embed/i53Gi_K3o7I"
         )
     ][:max_results]
 
 
-def search_youtube_tutorials(query: str, max_results: int = 2) -> List[YouTubeVideoItem]:
+def search_youtube_tutorials(query: str, max_results: int = 3) -> List[YouTubeVideoItem]:
     """
     Search YouTube Data API v3 for high-yield programming tutorials with in-memory caching
     and zero-crash educational fallback on quota limits (HTTP 403) or network timeouts.

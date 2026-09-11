@@ -15,9 +15,13 @@ export interface YouTubeVideoItem {
 export interface RoadmapItemDetail {
   week: number;
   theme: string;
-  task: string;
-  youtube_search_query: string;
-  coursera_search_query: string;
+  task?: string;
+  title?: string;
+  focus_skills?: string[];
+  tasks?: string[];
+  search_queries?: string[];
+  youtube_search_query?: string;
+  coursera_search_query?: string;
   videos?: YouTubeVideoItem[];
 }
 

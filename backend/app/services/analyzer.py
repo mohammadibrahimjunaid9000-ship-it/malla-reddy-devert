@@ -58,29 +58,77 @@ def get_fallback_analysis(target_role: str, candidate_text: str, note: str = "")
         learning_roadmap=[
             RoadmapItem(
                 week=1,
-                theme="Advanced Backend Architecture & Data Flow",
-                task="Design an event-driven messaging service using Redis Pub/Sub with retry queues.",
-                youtube_search_query=f"{clean_role} system design redis architecture tutorial",
+                theme="Advanced Backend Architecture & Event-Driven Systems",
+                task="Design and implement a scalable event-driven messaging service using Redis Pub/Sub with dead-letter retry queues.",
+                tasks=[
+                    "Configure Redis standalone and cluster instances with persistence tuning (AOF vs. RDB).",
+                    "Implement asynchronous publisher and subscriber pipelines using connection pooling.",
+                    "Build an exponential backoff dead-letter queue (DLQ) for failed message retry handling.",
+                    "Benchmark message throughput and measure p99 latency under concurrent publisher load."
+                ],
+                focus_skills=["Redis", "Event-Driven Design", "Pub/Sub Messaging"],
+                search_queries=[
+                    f"{clean_role} Redis Pub Sub architecture tutorial",
+                    "Redis system design in 100 seconds",
+                    "Building distributed background queues with Redis and Python"
+                ],
+                youtube_search_query=f"{clean_role} Redis Pub Sub architecture tutorial",
                 coursera_search_query="Distributed Programming in Java or Python"
             ),
             RoadmapItem(
                 week=2,
-                theme="Containerization & Cloud Deployments",
-                task="Dockerize a multi-tier web application and author a Helm chart / docker-compose manifest.",
+                theme="Containerization, Multi-Stage Builds & Kubernetes",
+                task="Dockerize a microservice backend using multi-stage builds and author local Kubernetes deployment manifests.",
+                tasks=[
+                    "Write an optimized multi-stage Dockerfile minimizing image layer size below 100MB.",
+                    "Implement healthcheck probes (liveness and readiness) with non-root security contexts.",
+                    "Author Kubernetes Deployment, Service, and ConfigMap YAML manifests with resource limits.",
+                    "Simulate pod rolling updates and test zero-downtime traffic switches."
+                ],
+                focus_skills=["Docker", "Kubernetes", "Container Security"],
+                search_queries=[
+                    "Docker tutorial for beginners full course",
+                    "Kubernetes crash course for developers",
+                    "Docker multi stage build best practices"
+                ],
                 youtube_search_query="Docker and Kubernetes crash course for developers",
                 coursera_search_query="DevOps and Cloud Architecture specialization"
             ),
             RoadmapItem(
                 week=3,
-                theme="Performance Optimization & Observability",
-                task="Implement Prometheus metrics and OpenTelemetry tracing on high-traffic endpoints.",
+                theme="Production Observability, Tracing & Database Tuning",
+                task="Integrate OpenTelemetry distributed tracing and Prometheus metrics across critical API endpoints.",
+                tasks=[
+                    "Instrument middleware to capture p50, p95, and p99 latency metrics in Prometheus format.",
+                    "Set up OpenTelemetry spans across database query execution and external HTTP calls.",
+                    "Analyze slow database queries using EXPLAIN ANALYZE and author composite B-Tree indexes.",
+                    "Build a Grafana monitoring dashboard with automated alert thresholds for 5xx errors."
+                ],
+                focus_skills=["OpenTelemetry", "Prometheus", "PostgreSQL Indexing"],
+                search_queries=[
+                    "OpenTelemetry distributed tracing tutorial",
+                    "Prometheus and Grafana setup guide",
+                    "Database indexing and query optimization full course"
+                ],
                 youtube_search_query="OpenTelemetry distributed tracing tutorial",
                 coursera_search_query="Cloud Monitoring and Observability"
             ),
             RoadmapItem(
                 week=4,
-                theme="Portfolio Capstone & Interview Preparation",
-                task=f"Build and benchmark a production-ready project showcasing {clean_role} proficiencies.",
+                theme="Production Capstone Project & Technical Interview Prep",
+                task=f"Ship an end-to-end production-ready capstone project demonstrating senior {clean_role} competencies.",
+                tasks=[
+                    "Finalize API documentation with OpenAPI/Swagger specifications and rate-limiting guards.",
+                    "Implement comprehensive end-to-end integration test suite achieving >85% branch coverage.",
+                    "Deploy containerized microservices to cloud environment with automated CI/CD pipelines.",
+                    "Conduct behavioral and high-load architectural review simulating senior engineering interviews."
+                ],
+                focus_skills=["System Design", "CI/CD", "Technical Interviews"],
+                search_queries=[
+                    f"{clean_role} technical interview walkthrough",
+                    "System design course for beginners",
+                    "NeetCode roadmap to ace technical interviews"
+                ],
                 youtube_search_query=f"{clean_role} technical interview walkthrough",
                 coursera_search_query="Software Engineering Interview Preparation"
             )
@@ -124,7 +172,15 @@ REQUIREMENTS:
 3. Calculate an accurate match_score (integer 0 to 100) reflecting real industry hiring bar.
 4. List matched_skills found in their resume relevant to "{target_role}".
 5. List missing_skills with "skill", "importance" ("High" or "Medium"), and "reason".
-6. Formulate a 4-to-6 week learning_roadmap where each item has "week", "theme", "task", "youtube_search_query", and "coursera_search_query".
+6. Formulate a 4-to-6 week learning_roadmap where each item has:
+   - "week": integer week number (1 to 4)
+   - "theme": descriptive module title (e.g. "Advanced Caching & Event-Driven Pipelines")
+   - "task": 1-sentence executive summary of the milestone
+   - "tasks": list of 3-4 granular, practical action items (e.g. ["Configure Redis connection pool with sentinel", "Implement dead-letter retry queue", "Benchmark p99 latency under load"])
+   - "focus_skills": list of 2-3 specific technical skills trained in this week
+   - "search_queries": list of 2-3 specific YouTube search queries (e.g. ["Redis Pub/Sub system design", "Redis tutorial in 100 seconds", "Hands-on distributed task queue"])
+   - "youtube_search_query": primary YouTube tutorial query string
+   - "coursera_search_query": primary Coursera search query string
 7. Provide a concise job_search_keyword (3-5 words) suitable for live job boards.
 8. Provide 3-5 high-impact resume_bullet_fixes rewritten in the XYZ metric-driven action format: "Accomplished [X] as measured by [Y], by doing [Z]".
 
@@ -138,7 +194,20 @@ Return ONLY raw, valid JSON matching this exact structure:
     {{"skill": "Skill X", "importance": "High", "reason": "Explanation"}}
   ],
   "learning_roadmap": [
-    {{"week": 1, "theme": "Theme", "task": "Task", "youtube_search_query": "query", "coursera_search_query": "query"}}
+    {{
+      "week": 1,
+      "theme": "Theme Title",
+      "task": "Executive summary of milestone",
+      "tasks": [
+        "Actionable implementation step 1",
+        "Actionable implementation step 2",
+        "Verification or testing step 3"
+      ],
+      "focus_skills": ["Skill A", "Skill B"],
+      "search_queries": ["Topic 1 deep dive tutorial", "Topic 1 hands on project"],
+      "youtube_search_query": "primary tutorial query",
+      "coursera_search_query": "course query"
+    }}
   ],
   "job_search_keyword": "keyword string",
   "resume_bullet_fixes": ["bullet 1", "bullet 2"]
