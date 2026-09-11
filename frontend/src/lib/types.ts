@@ -46,6 +46,7 @@ export interface JobPosting {
   location: string;
   snippet: string;
   url: string;
+  apply_url?: string;
   salary?: string;
   posted_date?: string;
 }

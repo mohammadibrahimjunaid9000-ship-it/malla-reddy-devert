@@ -87,6 +87,11 @@ class Settings(BaseSettings):
         or raw_env.get("jooble_api_key")
         or ""
     )
+    JOOBLE_BASE_URL: str = (
+        raw_env.get("JOOBLE_BASE_URL")
+        or raw_env.get("jooble_base_url")
+        or ""
+    )
     YOUTUBE_API_KEY: str = (
         raw_env.get("YOUTUBE_API_KEY")
         or raw_env.get("youtube_api")
