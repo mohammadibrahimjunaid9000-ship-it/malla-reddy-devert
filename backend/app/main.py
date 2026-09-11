@@ -6,6 +6,8 @@ from app.api.routes.analyze import router as analyze_router
 from app.api.routes.jobs import router as jobs_router
 from app.api.routes.dsa import router as dsa_router
 from app.api.routes.youtube import router as youtube_router
+from app.api.routes.analyses import router as analyses_router
+from app.api.routes.interview import router as interview_router
 from app.core.supabase import supabase
 
 app = FastAPI(
@@ -33,6 +35,8 @@ app.include_router(analyze_router, prefix="/api")
 app.include_router(jobs_router, prefix="/api")
 app.include_router(dsa_router, prefix="/api")
 app.include_router(youtube_router, prefix="/api")
+app.include_router(analyses_router, prefix="/api")
+app.include_router(interview_router, prefix="/api")
 
 @app.get("/health", tags=["Health"])
 def health_check():

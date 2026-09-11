@@ -12,7 +12,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { FullAnalysisResponse } from "@/lib/types";
-import { getDemoAnalysis } from "@/lib/api";
+import { getDemoAnalysis, saveAnalysis } from "@/lib/api";
 import { Navbar } from "@/components/Navbar";
 import { UploadSection } from "@/components/UploadSection";
 import { AnalysisHeader } from "@/components/AnalysisHeader";
@@ -20,6 +20,7 @@ import { AnalyzingSkeleton } from "@/components/AnalyzingSkeleton";
 import { RoadmapTab } from "@/components/RoadmapTab";
 import { JobBoardTab } from "@/components/JobBoardTab";
 import { CompanyDSATab } from "@/components/CompanyDSATab";
+import { MockInterviewModal } from "@/components/MockInterviewModal";
 
 export default function Home() {
   // Application State Transitions: idle | analyzing | results
@@ -36,7 +37,34 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [backendHealthy, setBackendHealthy] = useState<boolean | null>(null);
 
+  // Phase 5 States: Mock Interview Modal & Roadmap Sharing
+  const [isInterviewModalOpen, setIsInterviewModalOpen] = useState(false);
+  const [sharingRoadmap, setSharingRoadmap] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
+
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
+  // Share Roadmap Handler
+  const handleShareRoadmap = async () => {
+    if (!analysis || sharingRoadmap) return;
+    setSharingRoadmap(true);
+    try {
+      const res = await saveAnalysis(analysis);
+      const fullUrl = `${window.location.origin}/roadmap/${res.id}`;
+      navigator.clipboard.writeText(fullUrl);
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 3000);
+    } catch {
+      // Fallback: Copy current window URL
+      if (typeof window !== "undefined") {
+        navigator.clipboard.writeText(window.location.href);
+        setShareCopied(true);
+        setTimeout(() => setShareCopied(false), 3000);
+      }
+    } finally {
+      setSharingRoadmap(false);
+    }
+  };
 
   // Check backend health
   useEffect(() => {
@@ -264,7 +292,15 @@ export default function Home() {
             </div>
 
             {/* TAB CONTENTS */}
-            {activeTab === "overview" && <AnalysisHeader analysis={analysis} />}
+            {activeTab === "overview" && (
+              <AnalysisHeader
+                analysis={analysis}
+                onPracticeInterview={() => setIsInterviewModalOpen(true)}
+                onShareRoadmap={handleShareRoadmap}
+                sharing={sharingRoadmap}
+                shareCopied={shareCopied}
+              />
+            )}
 
             {activeTab === "roadmap" && (
               <RoadmapTab
@@ -279,6 +315,16 @@ export default function Home() {
 
             {activeTab === "dsa" && <CompanyDSATab />}
           </div>
+        )}
+
+        {/* Phase 5: Interactive AI Mock Interview Practice Modal */}
+        {analysis && (
+          <MockInterviewModal
+            isOpen={isInterviewModalOpen}
+            onClose={() => setIsInterviewModalOpen(false)}
+            targetRole={analysis.target_role}
+            missingSkills={analysis.missing_skills.map((m) => m.skill)}
+          />
         )}
       </main>
 

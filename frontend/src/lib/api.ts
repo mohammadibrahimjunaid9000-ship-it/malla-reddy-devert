@@ -101,3 +101,84 @@ export async function searchYouTube(
   }
   return res.json();
 }
+
+/**
+ * Persist an analysis record into Supabase to generate a shareable URL.
+ */
+export async function saveAnalysis(
+  analysis: FullAnalysisResponse
+): Promise<{ id: string; share_url: string; status: string }> {
+  const res = await fetch(`${API_BASE}/api/analyses`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(analysis),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to save analysis (${res.status})`);
+  }
+
+  return res.json();
+}
+
+/**
+ * Retrieve a saved analysis by UUID for public shareable viewing.
+ */
+export async function getSavedAnalysis(id: string): Promise<FullAnalysisResponse> {
+  const res = await fetch(`${API_BASE}/api/analyses/${encodeURIComponent(id)}`);
+  if (!res.ok) {
+    throw new Error(`Analysis not found or link has expired (${res.status})`);
+  }
+  return res.json();
+}
+
+/**
+ * Generate 3 tailored mock interview questions based on candidate skill gaps.
+ */
+export async function generateInterviewQuestions(
+  targetRole: string,
+  missingSkills: string[]
+): Promise<{ target_role: string; questions: import("./types").InterviewQuestion[] }> {
+  const res = await fetch(`${API_BASE}/api/interview/generate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      target_role: targetRole,
+      missing_skills: missingSkills,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to generate interview questions (${res.status})`);
+  }
+
+  return res.json();
+}
+
+/**
+ * Submit candidate's answer for Gemini AI scoring and structured feedback.
+ */
+export async function evaluateInterviewAnswer(
+  question: string,
+  userAnswer: string,
+  targetRole: string,
+  skillFocus?: string
+): Promise<import("./types").InterviewEvaluation> {
+  const res = await fetch(`${API_BASE}/api/interview/evaluate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      question,
+      user_answer: userAnswer,
+      target_role: targetRole,
+      skill_focus: skillFocus || "General",
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to evaluate interview response (${res.status})`);
+  }
+
+  return res.json();
+}
+

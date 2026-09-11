@@ -15,9 +15,19 @@ import { FullAnalysisResponse } from "@/lib/types";
 
 interface AnalysisHeaderProps {
   analysis: FullAnalysisResponse;
+  onPracticeInterview?: () => void;
+  onShareRoadmap?: () => void;
+  sharing?: boolean;
+  shareCopied?: boolean;
 }
 
-export const AnalysisHeader: React.FC<AnalysisHeaderProps> = ({ analysis }) => {
+export const AnalysisHeader: React.FC<AnalysisHeaderProps> = ({
+  analysis,
+  onPracticeInterview,
+  onShareRoadmap,
+  sharing,
+  shareCopied,
+}) => {
   const [copiedIdx, setCopiedIdx] = React.useState<number | null>(null);
 
   const score = analysis.match_score;
@@ -42,7 +52,7 @@ export const AnalysisHeader: React.FC<AnalysisHeaderProps> = ({ analysis }) => {
     <div className="w-full rounded-2xl bg-slate-900/70 border border-slate-800/90 shadow-2xl backdrop-blur-xl p-6 sm:p-8 flex flex-col gap-6">
       {/* Top Banner: Candidate Info & Radial Match Score */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-800/80">
-        <div className="flex flex-col sm:items-start text-center sm:text-left gap-1.5">
+        <div className="flex flex-col sm:items-start text-center sm:text-left gap-2">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
             <h2 className="text-2xl font-bold text-white tracking-tight">
               {analysis.candidate_name}
@@ -62,6 +72,44 @@ export const AnalysisHeader: React.FC<AnalysisHeaderProps> = ({ analysis }) => {
             Target Role Evaluation:{" "}
             <strong className="text-slate-100 font-semibold">{analysis.target_role}</strong>
           </p>
+
+          {/* Action CTAs: Practice Mock Interview & Share Roadmap */}
+          <div className="flex flex-wrap items-center gap-2.5 pt-2">
+            {onPracticeInterview && (
+              <button
+                onClick={onPracticeInterview}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/20 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              >
+                <Sparkles className="h-4 w-4" />
+                <span>🎯 Practice Mock Interview</span>
+              </button>
+            )}
+
+            {onShareRoadmap && (
+              <button
+                onClick={onShareRoadmap}
+                disabled={sharing}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-200 hover:text-white transition-all cursor-pointer shadow-sm"
+              >
+                {shareCopied ? (
+                  <>
+                    <Check className="h-4 w-4 text-emerald-400" />
+                    <span className="text-emerald-400 font-bold">Public Link Copied!</span>
+                  </>
+                ) : sharing ? (
+                  <>
+                    <span className="animate-spin text-indigo-400">⏳</span>
+                    <span>Saving to Supabase...</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-3.5 w-3.5 text-indigo-400" />
+                    <span>🔗 Share Roadmap</span>
+                  </>
+                )}
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Circular SVG Match Ring */}

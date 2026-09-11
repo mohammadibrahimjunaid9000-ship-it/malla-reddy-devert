@@ -54,3 +54,27 @@ export interface DSAQuestion {
   pattern: string;
   leetcode_url: string;
 }
+
+export interface InterviewQuestion {
+  id: number;
+  category: string;
+  question: string;
+  skill_focus: string;
+  hint?: string;
+}
+
+export interface InterviewEvaluation {
+  score: number;
+  verdict: string;
+  strengths: string[];
+  areas_for_improvement: string[];
+  ideal_answer: string;
+}
+
+export interface AnalysisSaveResponse {
+  id: string;
+  share_url: string;
+  status: string;
+  created_at?: string;
+}
+
